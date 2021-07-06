@@ -17,7 +17,7 @@ def Mcx(Isym,Mc):                       # https://keysofthelp.transoftsolutions.
     
     return [Mc1,Mc2]
 
-class LDT:
+class ldt:
     def __init__(self, arquivo):
         texto = open(arquivo,'r')
         linhas = texto.readlines()
@@ -31,7 +31,9 @@ class LDT:
         self.Ng = int(linhas[5])          # Number Ng of luminous intensities in each C-plane (usually 19 or 37)
         self.Dg = int(linhas[6])          # Distance between luminous intensities per C-plane (Dg = 0 for non-equidistantly available luminous intensities in C-planes)
         self.LumName = linhas[8]          # Luminaire name
-        i = 42
+        self.lorl = float(linhas[22])     # LORL - Light output ratio luminaire (%)
+        self.n = int(linhas[25])          # Number n of standard sets of lamps (optional, also extendable on company-specific basis)
+        i = 42 + (self.n-1)*6
         j = i + self.Mc
         self.AnglesC = linhas[i:j]         # Angles C (beginning with 0 degrees) Mc * 6
         i = j
