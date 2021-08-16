@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 import LDTtoList
 # Note the matplot tk canvas import
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import sys
-import os
+
 
 def Plotar(arquivo, titulo, legenda, eficiencia):
     ldt = LDTtoList.ldt(arquivo)
